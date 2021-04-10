@@ -1,0 +1,45 @@
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node:
+          - 10
+          - 12
+          - 14
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Run tests
+        run: |
+          npm install --also=dev
+          npm test
+
+  check-linting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run eslint
+        run: |
+          npm install --also=dev
+          npm run lint
+#
+#  check-commits:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: Run semantic-release with commit linting
+#        run: |
+#          npm install --also=dev
+#          mkdir -p node_modules/semantic-release-commitlint
+#          cp -r ./* node_modules/semantic-release-commitlint/ || true
+#          echo "npx semantic-release --dry-run --no-ci --branches main,$GITHUB_REF"
+#          npx semantic-release --dry-run --no-ci --branches $GITHUB_REF
