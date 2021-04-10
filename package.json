@@ -1,0 +1,39 @@
+{
+  "name": "semantic-release-commitlint",
+  "version": "0.0.0",
+  "description": "Plugin for validating commit message formats",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava",
+    "test:watch": "ava --watch",
+    "lint": "eslint src/** "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XC-/semantic-release-commitlint.git"
+  },
+  "author": "Aki Mäkinen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/XC-/semantic-release-commitlint/issues"
+  },
+  "homepage": "https://github.com/XC-/semantic-release-commitlint#readme",
+  "devDependencies": {
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "ava": "^3.15.0",
+    "eslint": "^7.24.0",
+    "semantic-release": "^17.4.2"
+  },
+  "ava": {
+    "files": [
+      "./**/*.test.js"
+    ]
+  },
+  "dependencies": {
+    "@commitlint/config-conventional": "^12.1.1",
+    "@commitlint/format": "^12.1.1",
+    "@commitlint/lint": "^12.1.1",
+    "@commitlint/load": "^12.1.1"
+  }
+}
