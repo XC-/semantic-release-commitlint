@@ -1,0 +1,4 @@
+.github
+**/*.test.js
+.releaserc
+.idea
