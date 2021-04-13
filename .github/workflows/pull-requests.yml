@@ -42,4 +42,4 @@ jobs:
           mkdir -p node_modules/semantic-release-commitlint
           cp -r ./* node_modules/semantic-release-commitlint/ || true
           echo "npx semantic-release --dry-run --no-ci --branches main,$GITHUB_REF"
-          npx semantic-release --dry-run --no-ci -b $GITHUB_REF
+          npx semantic-release --dry-run --no-ci
