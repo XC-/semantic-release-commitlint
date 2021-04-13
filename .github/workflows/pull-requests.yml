@@ -41,4 +41,4 @@ jobs:
           npm install --also=dev
           mkdir -p node_modules/semantic-release-commitlint
           cp -r ./* node_modules/semantic-release-commitlint/ || true
-          npx semantic-release --dry-run
+          npx semantic-release --dry-run --no-ci
