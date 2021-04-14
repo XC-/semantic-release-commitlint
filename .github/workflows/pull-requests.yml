@@ -44,4 +44,4 @@ jobs:
           mkdir -p node_modules/semantic-release-commitlint
           cp -r ./* node_modules/semantic-release-commitlint/ || true
           git fetch && git checkout $BRANCH
-          npx semantic-release --dry-run --no-ci -b test/gha --debug
+          npx semantic-release --dry-run --no-ci -b $BRANCH --debug
