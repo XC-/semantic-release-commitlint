@@ -42,4 +42,4 @@ jobs:
           mkdir -p node_modules/semantic-release-commitlint
           cp -r ./* node_modules/semantic-release-commitlint/ || true
           git status
-          npx semantic-release --dry-run --no-ci --branches main,refs/pull/3/merge
+          npx semantic-release --dry-run --branches main,refs/pull/3/merge
