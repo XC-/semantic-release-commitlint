@@ -43,7 +43,7 @@ jobs:
         run: |
           export BRANCH="$GITHUB_HEAD_REF"
           unset $(compgen -v | grep "GITHUB_")
-          npm install --also=dev
+          npm ci --also=dev
           mkdir -p node_modules/semantic-release-commitlint
           cp -r ./* node_modules/semantic-release-commitlint/ || true
           git fetch && git checkout $BRANCH
