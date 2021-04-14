@@ -31,15 +31,29 @@ jobs:
         run: |
           npm install --also=dev
           npm run lint
-#
-#  check-commits:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v2
-#      - name: Run semantic-release with commit linting
-#        run: |
-#          npm install --also=dev
-#          mkdir -p node_modules/semantic-release-commitlint
-#          cp -r ./* node_modules/semantic-release-commitlint/ || true
-#          echo "npx semantic-release --dry-run --no-ci --branches main,$GITHUB_REF"
-#          npx semantic-release --dry-run --no-ci --branches $GITHUB_REF
+
+  check-commits:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run semantic-release with commit linting
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          export BRANCH="$GITHUB_HEAD_REF"
+          unset $(compgen -v | grep "GITHUB_")
+          npm install --also=dev
+          mkdir -p node_modules/semantic-release-commitlint
+          cp -r ./* node_modules/semantic-release-commitlint/ || true
+          git fetch && git checkout $BRANCH
+          npx semantic-release --dry-run --no-ci -b $BRANCH
+
+  trivy:
+    runs-on: ubuntu-latest
+    container:
+      image: aquasec/trivy:latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Scan with Trivy
+        run: trivy fs --exit-code 1 --severity HIGH,CRITICAL --ignore-unfixed ./

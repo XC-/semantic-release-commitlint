@@ -79,3 +79,31 @@ test("Two commits (valid, warning) should fail (failOnWarning true)", async t =>
         commits: [validCommit, validButWarning]
     }));
 });
+
+test("Custom rule (fail too long header)", async t => {
+    await t.throwsAsync(analyzeCommits(
+        {
+            ...doNotFailOnWarningConfig,
+            rules: {
+                "header-max-length": [2, "always", 10]
+            }
+        }, {
+            ...contextCommons,
+            commits: [validCommit]
+        }
+    ));
+});
+
+test("Custom rule (do not fail too long header)", async t => {
+    await t.notThrowsAsync(analyzeCommits(
+        {
+            ...doNotFailOnWarningConfig,
+            rules: {
+                "header-max-length": [0, "always", 10]
+            }
+        }, {
+            ...contextCommons,
+            commits: [validCommit]
+        }
+    ));
+});

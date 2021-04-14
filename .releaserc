@@ -1,8 +1,15 @@
 {
   "branches": ["main"],
   "plugins": [
-    "@semantic-release/commit-analyzer",
-    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/commit-analyzer",
+      { "preset": "conventionalcommits", "presetConfig": {} }
+    ],
+    "semantic-release-commitlint",
+    [
+      "@semantic-release/release-notes-generator",
+      { "preset": "conventionalcommits", "presetConfig": {} }
+    ],
     [
       "@semantic-release/changelog", {
       "changelogFile": "CHANGELOG.md"
