@@ -38,7 +38,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run semantic-release with commit linting
         run: |
-          unset GITHUB_REF
+          unset $(compgen -v | grep "GITHUB_")
           npm install --also=dev
           mkdir -p node_modules/semantic-release-commitlint
           cp -r ./* node_modules/semantic-release-commitlint/ || true
