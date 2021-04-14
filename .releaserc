@@ -1,7 +1,7 @@
 {
   "branches": ['+([0-9])?(.{+([0-9]),x}).x', 'main', 'next', 'next-major', {name: 'beta', prerelease: true}, {name: 'alpha', prerelease: true}, {name: 'refs/pull/3/merge', prerelease: true}],
   "plugins": [
-    ["@semantic-release/commit-analyzer", {"preset": "conventionalcommits", "releaseRules": [{"type": null, "release": "patch"}] }],
+    ["@semantic-release/commit-analyzer", {"preset": "conventionalcommits", "releaseRules": [{"type": "*", "release": "patch"}] }],
     "@semantic-release/release-notes-generator",
     [
       "@semantic-release/changelog", {
