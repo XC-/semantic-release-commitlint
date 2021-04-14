@@ -44,5 +44,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          npm install --also=dev
+          npm ci --also=dev
+          mkdir -p node_modules/semantic-release-commitlint
+          cp -r ./* node_modules/semantic-release-commitlint/ || true
           npx semantic-release
