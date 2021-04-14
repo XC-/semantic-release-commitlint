@@ -39,7 +39,7 @@ jobs:
       - check-linting
     steps:
       - uses: actions/checkout@v2
-      - name: Run semantic-release with commit linting
+      - name: Run semantic-release
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
