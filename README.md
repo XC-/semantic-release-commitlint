@@ -30,3 +30,6 @@ Currently the plugin has only one configuration setting:
     * Type: **Object**
     * Default: `{}`
     * Description: Object containing rules as listed at https://github.com/conventional-changelog/commitlint/blob/master/docs/reference-rules.md
+
+
+
