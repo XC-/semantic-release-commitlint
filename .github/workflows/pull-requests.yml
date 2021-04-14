@@ -37,6 +37,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run semantic-release with commit linting
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           export BRANCH="$GITHUB_HEAD_REF"
           unset $(compgen -v | grep "GITHUB_")
