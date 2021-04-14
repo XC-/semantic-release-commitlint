@@ -1,7 +1,7 @@
 {
   "branches": [
     { "name": "refs/pull/3/merge", "prerelease": true },
-    "main"
+    { name: "main", channel: "main" }
   ],
   "plugins": [
     "@semantic-release/commit-analyzer",
