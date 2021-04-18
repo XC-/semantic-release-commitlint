@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/XC-/semantic-release-commitlint/compare/v1.1.0...v1.2.0) (2021-04-18)
+
+
+### Features
+
+* add option to show errors as warnings ([069e1e8](https://github.com/XC-/semantic-release-commitlint/commit/069e1e8973b01c9023edac9eb93e2c3a348e0aaf))
+
 ## [1.1.0](https://github.com/XC-/semantic-release-commitlint/compare/v1.0.0...v1.1.0) (2021-04-14)
 
 
