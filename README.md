@@ -23,10 +23,18 @@ Currently the plugin has only one configuration setting:
 
 * `failOnWarning`
     * Type: **Boolean**
-    * Default: `false`
+    * Default: `undefined` (falsy)
     * Description: Normally commitlint warnings are considered as valid, but by setting this to true
       the plugin will throw an error if any warnings have been found.
 * `rules`
     * Type: **Object**
     * Default: `{}`
     * Description: Object containing rules as listed at https://github.com/conventional-changelog/commitlint/blob/master/docs/reference-rules.md
+* `warnOnly`
+    * Type: **Boolean**
+    * Default: `undefined` (falsy)
+    * Description: Instead of throwing errors, set maximum level to be warning.
+
+***THREE**, three configuration settings... oh blast it!*
+![](https://static.wikia.nocookie.net/montypython/images/f/ff/Spanish_Inquisition.jpg/revision/latest?cb=20180629171423)
+

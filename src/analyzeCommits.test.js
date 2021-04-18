@@ -59,6 +59,14 @@ test("Single commit (warning, fail)", async t => {
     }));
 });
 
+
+test("Single commit (errors as warnings)", async t => {
+    await t.notThrowsAsync(analyzeCommits({warnOnly: true}, {
+        ...contextCommons,
+        commits: [invalidCommit]
+    }));
+});
+
 test("Two commits (valid, warning) should not fail", async t => {
     await t.notThrowsAsync(analyzeCommits(doNotFailOnWarningConfig, {
         ...contextCommons,

@@ -10,7 +10,7 @@ const configuration = {
 async function analyzeCommits(pluginConfig, context) {
     let verified = true;
 
-    const {failOnWarning, rules} = pluginConfig;
+    const {failOnWarning, rules, warnOnly} = pluginConfig;
     const {logger} = context;
 
     // This should never happen! #tinfoilhat
@@ -25,6 +25,11 @@ async function analyzeCommits(pluginConfig, context) {
     }
     const options = await load({ ...configuration, rules });
     let results = [];
+    if (warnOnly) {
+        for (const key in options.rules) {
+            options.rules[key][0] = Math.min(options.rules[key][0], 1);
+        }
+    }
     for (const commit of commits) {
         const result = await lint(
             commit.message,
