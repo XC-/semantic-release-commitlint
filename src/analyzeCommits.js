@@ -1,5 +1,6 @@
 const load = require("@commitlint/load").default;
 const lint = require("@commitlint/lint").default;
+const SemanticReleaseError = require("@semantic-release/error");
 
 const formatError = require("./formatError");
 
@@ -43,7 +44,7 @@ async function analyzeCommits(pluginConfig, context) {
     }
     if (!verified) {
         logger.error("semantic-release-commitlint: Commit validation failed!");
-        throw new Error(formatError(results));
+        throw new SemanticReleaseError(formatError(results));
     }
     logger.success("semantic-release-commitlint: Commits validated successfully!");
 }
