@@ -1,3 +1,10 @@
+### [1.2.2](https://github.com/XC-/semantic-release-commitlint/compare/v1.2.1...v1.2.2) (2021-06-01)
+
+
+### Bug Fixes
+
+* move @semantic-release/error to dependencies ([13cabc5](https://github.com/XC-/semantic-release-commitlint/commit/13cabc5e7113050f00ffcbaa229203200e147667))
+
 ### [1.2.1](https://github.com/XC-/semantic-release-commitlint/compare/v1.2.0...v1.2.1) (2021-05-31)
 
 
