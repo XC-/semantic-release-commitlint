@@ -5,7 +5,7 @@
       "@semantic-release/commit-analyzer",
       { "preset": "conventionalcommits", "presetConfig": {} }
     ],
-    "semantic-release-commitlint",
+    ["semantic-release-commitlint", {"warnOnly": true }],
     [
       "@semantic-release/release-notes-generator",
       { "preset": "conventionalcommits", "presetConfig": {} }
